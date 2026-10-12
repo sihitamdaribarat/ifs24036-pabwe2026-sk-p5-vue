@@ -47,7 +47,7 @@ async function onSubmit() {
       <div>
         <label for="email" class="mb-1.5 block text-sm font-medium text-slate-700">Email</label>
         <input
-          id="email"
+          id="login-email-input"
           v-model="email"
           type="email"
           autocomplete="email"
@@ -61,7 +61,7 @@ async function onSubmit() {
         <label for="password" class="mb-1.5 block text-sm font-medium text-slate-700">Kata Sandi</label>
         <div class="relative">
           <input
-            id="password"
+            id="login-password-input"
             v-model="password"
             :type="showPassword ? 'text' : 'password'"
             autocomplete="current-password"
@@ -82,6 +82,7 @@ async function onSubmit() {
       </div>
 
       <button
+        id="login-submit-button"
         type="submit"
         :disabled="authStore.isAuthLogin"
         class="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"

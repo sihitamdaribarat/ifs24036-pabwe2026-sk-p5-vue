@@ -30,12 +30,12 @@ describe("LoginPage", () => {
   it("dapat menampilkan dan menyembunyikan kata sandi", async () => {
     const { wrapper } = await setup();
     const toggle = wrapper.find('[data-testid="toggle-password"]');
-    expect(wrapper.find("#password").attributes("type")).toBe("password");
+    expect(wrapper.find("#login-password-input").attributes("type")).toBe("password");
     await toggle.trigger("click");
-    expect(wrapper.find("#password").attributes("type")).toBe("text");
+    expect(wrapper.find("#login-password-input").attributes("type")).toBe("text");
     expect(toggle.attributes("aria-label")).toBe("Sembunyikan kata sandi");
     await toggle.trigger("click");
-    expect(wrapper.find("#password").attributes("type")).toBe("password");
+    expect(wrapper.find("#login-password-input").attributes("type")).toBe("password");
   });
 
   it("login berhasil menyimpan token dan menuju beranda", async () => {
@@ -43,8 +43,8 @@ describe("LoginPage", () => {
     authApi.login.mockReturnValue(new Promise((resolve) => (resolveLogin = resolve)));
     const { wrapper, router } = await setup();
 
-    await wrapper.find("#email").setValue(" budi@mail.com ");
-    await wrapper.find("#password").setValue("rahasia");
+    await wrapper.find("#login-email-input").setValue(" budi@mail.com ");
+    await wrapper.find("#login-password-input").setValue("rahasia");
     await wrapper.find("form").trigger("submit");
 
     expect(wrapper.find('button[type="submit"]').text()).toContain("Memproses...");
@@ -63,8 +63,8 @@ describe("LoginPage", () => {
     authApi.login.mockRejectedValue(new Error("Kredensial salah"));
     const { wrapper, router } = await setup();
 
-    await wrapper.find("#email").setValue("budi@mail.com");
-    await wrapper.find("#password").setValue("salah");
+    await wrapper.find("#login-email-input").setValue("budi@mail.com");
+    await wrapper.find("#login-password-input").setValue("salah");
     await wrapper.find("form").trigger("submit");
     await flushPromises();
 
