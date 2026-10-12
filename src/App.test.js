@@ -64,8 +64,8 @@ describe("App (integrasi)", () => {
     mockApi();
     const { wrapper, router } = await mountApp("/auth/login");
 
-    await wrapper.find("#email").setValue("budi@mail.com");
-    await wrapper.find("#password").setValue("rahasia");
+    await wrapper.find("#login-email-input").setValue("budi@mail.com");
+    await wrapper.find("#login-password-input").setValue("rahasia");
     await wrapper.find("form").trigger("submit");
     await flushPromises();
 
