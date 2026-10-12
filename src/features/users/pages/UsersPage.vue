@@ -65,7 +65,7 @@ onMounted(async () => {
         <div class="min-w-0">
           <p class="truncate font-semibold text-slate-900">{{ user.name }}</p>
           <p class="flex items-center gap-1 truncate text-sm text-slate-500"><Mail class="h-3.5 w-3.5" /> {{ user.email }}</p>
-          <p class="text-xs text-slate-400">Bergabung {{ formatDate(user.created_at) }}</p>
+          <p class="text-xs text-slate-500">Bergabung {{ formatDate(user.created_at) }}</p>
         </div>
       </li>
     </ul>

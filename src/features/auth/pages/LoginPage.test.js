@@ -56,7 +56,7 @@ describe("LoginPage", () => {
     expect(authApi.login).toHaveBeenCalledWith({ email: "budi@mail.com", password: "rahasia" });
     expect(getAccessToken()).toBe("tkn");
     expect(Swal.fire).toHaveBeenCalledWith(expect.objectContaining({ icon: "success" }));
-    expect(router.currentRoute.value.name).toBe("home");
+    await vi.waitFor(() => expect(router.currentRoute.value.name).toBe("home"));
   });
 
   it("login gagal menampilkan dialog error", async () => {

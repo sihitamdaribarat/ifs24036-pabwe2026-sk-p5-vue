@@ -170,7 +170,7 @@ describe("DetailPage", () => {
       await remove();
       await flushPromises();
       expect(aucationApi.deleteAucation).toHaveBeenCalledWith(9);
-      expect(router.currentRoute.value.name).toBe("home");
+      await vi.waitFor(() => expect(router.currentRoute.value.name).toBe("home"));
     });
 
     it("menggunakan pesan default ketika hapus berhasil tanpa pesan", async () => {

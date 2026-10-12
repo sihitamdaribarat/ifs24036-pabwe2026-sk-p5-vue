@@ -48,7 +48,7 @@ describe("NavbarComponent", () => {
     expect(authApi.logout).toHaveBeenCalled();
     expect(getAccessToken()).toBeNull();
     expect(useUsersStore(pinia).profile).toBeNull();
-    expect(router.currentRoute.value.name).toBe("login");
+    await vi.waitFor(() => expect(router.currentRoute.value.name).toBe("login"));
   });
 
   it("batal logout ketika konfirmasi ditolak", async () => {

@@ -51,7 +51,7 @@ const menus = [
       </div>
 
       <nav class="flex-1 space-y-1 px-3 py-4">
-        <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">Menu</p>
+        <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">Menu</p>
         <RouterLink
           v-for="menu in menus"
           :key="menu.label"

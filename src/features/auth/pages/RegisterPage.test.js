@@ -45,7 +45,7 @@ describe("RegisterPage", () => {
 
     expect(authApi.register).toHaveBeenCalledWith({ name: "Budi", email: "budi@mail.com", password: "rahasia123" });
     expect(Swal.fire).toHaveBeenCalledWith(expect.objectContaining({ icon: "success", text: "Berhasil mendaftar" }));
-    expect(router.currentRoute.value.name).toBe("login");
+    await vi.waitFor(() => expect(router.currentRoute.value.name).toBe("login"));
   });
 
   it("menggunakan pesan default ketika API tidak mengirim pesan", async () => {

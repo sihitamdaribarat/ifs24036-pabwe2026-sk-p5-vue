@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { computed, defineAsyncComponent, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { RouterLink, useRoute, useRouter } from "vue-router";
 import {
   ArrowLeft,
@@ -13,7 +13,6 @@ import {
   Trophy,
   Undo2,
 } from "lucide-vue-next";
-import MarkdownViewer from "../components/MarkdownViewer.vue";
 import ChangeModal from "../modals/ChangeModal.vue";
 import ChangeCoverModal from "../modals/ChangeCoverModal.vue";
 import BidModal from "../modals/BidModal.vue";
@@ -29,6 +28,9 @@ import {
   showErrorDialog,
   showSuccessDialog,
 } from "../../../helpers/toolsHelper";
+
+// toast-ui berukuran besar, dimuat terpisah hanya saat dibutuhkan.
+const MarkdownViewer = defineAsyncComponent(() => import("../components/MarkdownViewer.vue"));
 
 const route = useRoute();
 const router = useRouter();
@@ -122,7 +124,7 @@ onBeforeUnmount(() => clearInterval(timer));
             data-testid="detail-cover"
             class="aspect-[4/3] w-full object-cover"
           />
-          <div v-else class="flex aspect-[4/3] flex-col items-center justify-center text-slate-400">
+          <div v-else class="flex aspect-[4/3] flex-col items-center justify-center text-slate-600">
             <ImageOff class="h-14 w-14" />
             <span class="mt-2 text-sm">Belum ada cover</span>
           </div>
@@ -243,7 +245,7 @@ onBeforeUnmount(() => clearInterval(timer));
             >
               <span class="flex items-center gap-2">
                 <Trophy v-if="index === 0" class="h-4 w-4 text-emerald-600" />
-                <span v-else class="w-4 text-center text-xs text-slate-400">{{ index + 1 }}</span>
+                <span v-else class="w-4 text-center text-xs text-slate-500">{{ index + 1 }}</span>
                 <span>
                   <span class="block font-semibold text-slate-800">{{ formatRupiah(item.bid) }}</span>
                   <span class="block text-xs text-slate-500">{{ formatDate(item.created_at) }}</span>

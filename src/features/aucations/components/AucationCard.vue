@@ -28,14 +28,14 @@ const bidCount = computed(() => props.aucation.bids?.length ?? 0);
         :alt="aucation.title"
         class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
       />
-      <div v-else class="flex h-full flex-col items-center justify-center text-slate-400">
+      <div v-else class="flex h-full flex-col items-center justify-center text-slate-600">
         <ImageOff class="h-10 w-10" />
         <span class="mt-1 text-xs">Belum ada cover</span>
       </div>
       <span
         :class="[
           'absolute left-3 top-3 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold shadow',
-          closed ? 'bg-slate-800/90 text-white' : 'bg-emerald-500 text-white',
+          closed ? 'bg-slate-800/90 text-white' : 'bg-emerald-700 text-white',
         ]"
       >
         <Clock class="h-3.5 w-3.5" />

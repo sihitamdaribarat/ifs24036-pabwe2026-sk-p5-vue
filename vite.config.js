@@ -13,6 +13,23 @@ export default defineConfig(({ mode }) => {
     server: {
       port: Number(env.APP_PORT) || 3000,
     },
+    build: {
+      // Browser modern saja: hindari transpile/polyfill legacy yang tidak perlu.
+      target: "es2022",
+      // Source map untuk debugging di produksi (rekomendasi Lighthouse).
+      sourcemap: true,
+      rollupOptions: {
+        output: {
+          // Pisahkan vendor besar agar cache-nya bertahan antar rilis.
+          manualChunks(id) {
+            if (!id.includes("node_modules")) return undefined;
+            if (id.includes("@toast-ui") || id.includes("prosemirror")) return "vendor-editor";
+            if (id.includes("sweetalert2")) return "vendor-swal";
+            return "vendor";
+          },
+        },
+      },
+    },
     preview: {
       port: Number(env.APP_PORT) || 3000,
     },

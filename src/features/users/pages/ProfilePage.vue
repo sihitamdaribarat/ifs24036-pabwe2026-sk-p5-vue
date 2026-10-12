@@ -115,7 +115,7 @@ async function onChangePassword() {
         </div>
         <p class="mt-4 text-lg font-bold text-slate-900">{{ usersStore.profile?.name ?? "-" }}</p>
         <p class="text-sm text-slate-500">{{ usersStore.profile?.email ?? "-" }}</p>
-        <p class="mt-3 text-xs text-slate-400">Bergabung {{ formatDate(usersStore.profile?.created_at) }}</p>
+        <p class="mt-3 text-xs text-slate-500">Bergabung {{ formatDate(usersStore.profile?.created_at) }}</p>
       </div>
 
       <div class="space-y-6 lg:col-span-2">

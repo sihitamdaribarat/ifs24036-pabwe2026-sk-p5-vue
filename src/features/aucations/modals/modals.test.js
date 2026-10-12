@@ -29,6 +29,8 @@ const aucation = {
 
 async function fillForm(wrapper) {
   await wrapper.find("#aucation-title").setValue("Jam Tangan Baru");
+  // MarkdownEditor dimuat async; tunggu hingga ter-render.
+  await vi.waitFor(() => expect(wrapper.find('[data-testid="markdown-editor"]').exists()).toBe(true));
   Editor.instances.at(-1).type("Deskripsi baru");
   await wrapper.find("#aucation-start-bid").setValue("150000");
   await wrapper.find("#aucation-closed-at").setValue("2999-02-01T09:30");

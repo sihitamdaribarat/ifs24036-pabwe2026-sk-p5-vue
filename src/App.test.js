@@ -70,9 +70,9 @@ describe("App (integrasi)", () => {
     await flushPromises();
 
     expect(getAccessToken()).toBe("token-app");
-    expect(router.currentRoute.value.name).toBe("home");
+    await vi.waitFor(() => expect(router.currentRoute.value.name).toBe("home"));
+    await vi.waitFor(() => expect(wrapper.text()).toContain("Kamera Analog"));
     expect(wrapper.text()).toContain("Dashboard Lelang");
-    expect(wrapper.text()).toContain("Kamera Analog");
     expect(wrapper.text()).toContain("Budi Santoso");
 
     await wrapper.find('[data-testid="logout-button"]').trigger("click");

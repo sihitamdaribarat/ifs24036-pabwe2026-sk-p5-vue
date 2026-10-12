@@ -1,9 +1,11 @@
 <script setup>
-import { ref } from "vue";
+import { defineAsyncComponent, ref } from "vue";
 import { Loader2, Save } from "lucide-vue-next";
-import MarkdownEditor from "./MarkdownEditor.vue";
 import { useInput } from "../../../hooks/useInput";
 import { validateAucationForm } from "../utils/aucationForm";
+
+// toast-ui berukuran besar, dimuat terpisah hanya saat dibutuhkan.
+const MarkdownEditor = defineAsyncComponent(() => import("./MarkdownEditor.vue"));
 
 const props = defineProps({
   initial: {

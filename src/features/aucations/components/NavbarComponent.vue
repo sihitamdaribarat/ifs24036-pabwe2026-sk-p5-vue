@@ -74,7 +74,7 @@ async function onLogout() {
         type="button"
         data-testid="logout-button"
         :disabled="authStore.isAuthLogout"
-        class="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-rose-600 hover:bg-rose-50 disabled:opacity-60"
+        class="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-rose-700 hover:bg-rose-50 disabled:opacity-60"
         @click="onLogout"
       >
         <LogOut class="h-4 w-4" />

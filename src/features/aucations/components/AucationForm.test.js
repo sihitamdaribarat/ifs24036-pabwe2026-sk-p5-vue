@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { mount } from "@vue/test-utils";
 import Editor from "@toast-ui/editor";
 import AucationForm from "./AucationForm.vue";
@@ -52,6 +52,8 @@ describe("AucationForm", () => {
   it("emit submit dengan nilai form yang valid", async () => {
     const wrapper = mount(AucationForm, { props: { submitLabel: "Buat" } });
     await wrapper.find("#aucation-title").setValue("Kamera Analog");
+    // MarkdownEditor dimuat async; tunggu hingga ter-render.
+    await vi.waitFor(() => expect(wrapper.find('[data-testid="markdown-editor"]').exists()).toBe(true));
     Editor.instances.at(-1).type("Deskripsi **lengkap**");
     await wrapper.find("#aucation-start-bid").setValue("250000");
     await wrapper.find("#aucation-closed-at").setValue("2999-01-01T12:00");
