@@ -15,7 +15,7 @@ async function setup() {
 describe("LoginPage", () => {
   it("menampilkan form login dan tautan registrasi", async () => {
     const { wrapper } = await setup();
-    expect(wrapper.find("h2").text()).toBe("Masuk");
+    expect(wrapper.find("h1").text()).toBe("Masuk");
     expect(wrapper.find('a[href="/auth/register"]').exists()).toBe(true);
   });
 

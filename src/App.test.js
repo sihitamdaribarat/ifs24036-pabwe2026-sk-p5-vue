@@ -57,7 +57,7 @@ describe("App (integrasi)", () => {
     mockApi();
     const { wrapper, router } = await mountApp("/");
     expect(router.currentRoute.value.name).toBe("login");
-    expect(wrapper.find("h2").text()).toBe("Masuk");
+    expect(wrapper.find("h1").text()).toBe("Masuk");
   });
 
   it("alur login → dashboard → logout", async () => {

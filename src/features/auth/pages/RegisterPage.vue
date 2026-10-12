@@ -61,7 +61,7 @@ async function onSubmit() {
 
 <template>
   <div>
-    <h2 class="text-2xl font-bold text-slate-900">Buat Akun</h2>
+    <h1 class="text-2xl font-bold text-slate-900">Buat Akun</h1>
     <p class="mt-1 text-sm text-slate-500">Daftar gratis dan mulai ikut lelang.</p>
 
     <form class="mt-6 space-y-4" novalidate @submit.prevent="onSubmit">
@@ -70,6 +70,7 @@ async function onSubmit() {
         <input
           :id="field.id"
           v-model="field.model.value"
+          :name="field.id"
           :type="field.type"
           :autocomplete="field.autocomplete"
           :placeholder="field.placeholder"

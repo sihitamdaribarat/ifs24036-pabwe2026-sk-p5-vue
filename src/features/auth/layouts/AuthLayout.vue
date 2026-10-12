@@ -26,9 +26,9 @@ const highlights = [
       </div>
 
       <div class="relative max-w-md">
-        <h1 class="text-4xl font-extrabold leading-tight">
+        <p class="text-4xl font-extrabold leading-tight">
           Lelang barang favoritmu, kapan saja.
-        </h1>
+        </p>
         <p class="mt-4 text-indigo-100">
           Buat lelang, ajukan penawaran, dan menangkan barang incaranmu di satu tempat.
         </p>

@@ -40,15 +40,16 @@ async function onSubmit() {
 
 <template>
   <div>
-    <h2 class="text-2xl font-bold text-slate-900">Masuk</h2>
+    <h1 class="text-2xl font-bold text-slate-900">Masuk</h1>
     <p class="mt-1 text-sm text-slate-500">Masuk untuk mulai mengikuti lelang.</p>
 
     <form class="mt-6 space-y-4" novalidate @submit.prevent="onSubmit">
       <div>
-        <label for="email" class="mb-1.5 block text-sm font-medium text-slate-700">Email</label>
+        <label for="login-email-input" class="mb-1.5 block text-sm font-medium text-slate-700">Email</label>
         <input
           id="login-email-input"
           v-model="email"
+          name="email"
           type="email"
           autocomplete="email"
           placeholder="nama@email.com"
@@ -58,11 +59,12 @@ async function onSubmit() {
       </div>
 
       <div>
-        <label for="password" class="mb-1.5 block text-sm font-medium text-slate-700">Kata Sandi</label>
+        <label for="login-password-input" class="mb-1.5 block text-sm font-medium text-slate-700">Kata Sandi</label>
         <div class="relative">
           <input
             id="login-password-input"
             v-model="password"
+            name="password"
             :type="showPassword ? 'text' : 'password'"
             autocomplete="current-password"
             placeholder="••••••••"
